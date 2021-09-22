@@ -86,6 +86,10 @@ $(NAME)	:	$(OBJS_MAND)
 		@echo Compiling Binary Files: $@ ...
 		$(CC) $(CFLAGS) -c $< -o $@ $(LFLAGS)
 
+so:
+	$(CC) -fPIC $(CFLAGS) $(SRC)
+	gcc -shared -o libft.so $(OBJ)
+
 bonus	:	$(OBJS_MAND) $(OBJS_BON) libft.h
 		$(AR) $(NAME) $(OBJS_BON) $(OBJS_MAND)
 		@echo Compiling Library "libft.a" File "Mandatory + Bonus Part": $@ ...
@@ -93,6 +97,7 @@ bonus	:	$(OBJS_MAND) $(OBJS_BON) libft.h
 clean	:	
 		@echo Cleaning The .o Generated Files: $@ ...
 		$(RM) ${OBJS_MAND} ${OBJS_BON}
+
 
 
 fclean	:	clean
