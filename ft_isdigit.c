@@ -3,23 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jpineiro <jpineiro@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hjimenez <hjimenez@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/15 20:36:15 by jpineiro          #+#    #+#             */
-/*   Updated: 2021/09/15 20:36:18 by jpineiro         ###   ########.fr       */
+/*   Created: 2021/09/24 09:29:16 by hjimenez          #+#    #+#             */
+/*   Updated: 2021/09/24 09:31:34 by hjimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_str_is_numeric(char *str)
+int	ft_isdigit(int c)
 {
-	int	i;
-
-	i = 0;
-	while (str[i])
-	{
-		if (str[i] < '0' || str[i] > '9')
-			return (0);
-		i++;
-	}
-	return (1);
+	if (c > 47 && c < 58)
+		return (1);
+	else
+		return (0);
 }

@@ -3,16 +3,16 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: hjimenez <hjimenez@student.42.fr>          +#+  +:+       +#+         #
+#    By: hjimenez <hjimenez@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/08 13:03:20 by adiaz-lo          #+#    #+#              #
-#    Updated: 2021/09/21 21:05:56 by hjimenez         ###   ########.fr        #
+#    Updated: 2021/09/24 10:37:50 by hjimenez         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		= libft.a
 
-SRCS_MAND	=	ft_isalpha.c		\
+SRCS_MAND	=	ft_isalpha.c	ft_isdigit.c	ft_isalnum.c	
 #		  		ft_memmove.c	\
 		  		ft_memchr.c		\
 		  		ft_memcmp.c		\
@@ -28,8 +28,6 @@ SRCS_MAND	=	ft_isalpha.c		\
 		  		ft_strnstr.c	\
 				ft_strncmp.c	\
 		  		ft_atoi.c		\
-		  		ft_isalnum.c	\
-		  		ft_isdigit.c	\
 		  		ft_isalpha.c	\
 		  		ft_isascii.c	\
 		 		ft_isprint.c	\
@@ -46,7 +44,7 @@ SRCS_MAND	=	ft_isalpha.c		\
 				ft_putchar_fd.c	\
 				ft_putstr_fd.c	\
 				ft_putendl_fd.c	\
-				ft_putnbr_fd.c	
+				ft_putnbr_fd.c
 
 # SRCS_BON	=	ft_lstnew.c			\
 				ft_lstadd_front.c	\
@@ -86,9 +84,6 @@ $(NAME)	:	$(OBJS_MAND)
 		@echo Compiling Binary Files: $@ ...
 		$(CC) $(CFLAGS) -c $< -o $@ $(LFLAGS)
 
-so:
-	$(CC) -fPIC $(CFLAGS) $(SRC)
-	gcc -shared -o libft.so $(OBJ)
 
 bonus	:	$(OBJS_MAND) $(OBJS_BON) libft.h
 		$(AR) $(NAME) $(OBJS_BON) $(OBJS_MAND)

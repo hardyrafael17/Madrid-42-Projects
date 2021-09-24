@@ -3,26 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isalnum.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jpineiro <jpineiro@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hjimenez <hjimenez@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/15 20:40:06 by jpineiro          #+#    #+#             */
-/*   Updated: 2021/09/15 20:40:07 by jpineiro         ###   ########.fr       */
+/*   Created: 2021/09/24 10:46:07 by hjimenez          #+#    #+#             */
+/*   Updated: 2021/09/24 10:53:43 by hjimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_str_is_alpha(char *str)
-{
-	int	i;
+#include "libft.h"
 
-	i = 0;
-	while (str[i])
+int	ft_isalnum(int c)
+{
+	if (ft_isalpha(c) || ft_isdigit(c))
 	{
-		if ((str[i] < 'A' || str[i] > 'Z') && (str[i] < 'a' || str[i] > 'z')
-			/ && (str[i] < '0' || str[i] > '9'))
-		{
-			return (0);
-		}
-		i++;
+		return (8);
 	}
-	return (1);
+	else
+	{
+		return (0);
+	}
 }

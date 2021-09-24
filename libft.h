@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hjimenez <hjimenez@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hjimenez <hjimenez@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/11 13:03:04 by adiaz-lo          #+#    #+#             */
-/*   Updated: 2021/09/21 21:05:24 by hjimenez         ###   ########.fr       */
+/*   Updated: 2021/09/24 10:33:08 by hjimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ typedef struct		s_list
 ** PART 1 - MANDATORY PART
 */
 
-int ft_salpha(int c);
+int	ft_isalpha(int c);
+int	ft_isdigit(int c);
+int ft_isalnum(int c);
 
 #endif
