@@ -6,7 +6,7 @@
 /*   By: hjimenez <hjimenez@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/11 13:03:04 by adiaz-lo          #+#    #+#             */
-/*   Updated: 2021/09/24 10:33:08 by hjimenez         ###   ########.fr       */
+/*   Updated: 2021/09/25 16:05:52 by hjimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,9 @@
 # include <unistd.h>
 # include <ctype.h>
 # include <stddef.h>
+# include <stdint.h>
 
-typedef struct		s_list
+typedef struct s_list
 {
 	void			*content;
 	struct s_list	*next;
@@ -30,8 +31,14 @@ typedef struct		s_list
 ** PART 1 - MANDATORY PART
 */
 
-int	ft_isalpha(int c);
-int	ft_isdigit(int c);
-int ft_isalnum(int c);
+int		ft_isalpha(int c);
+int		ft_isdigit(int c);
+int		ft_isalnum(int c);
+int		ft_isascii(int c);
+int		ft_isprint(int c);
+int		ft_strlen(char *str);
+void	ft_bzero(void *s, size_t n);
+void	*ft_memset(void *s, int c, size_t n);
+void	*ft_memcpy(void *dest, const void *src, size_t n);
 
 #endif

@@ -3,32 +3,26 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jpineiro <jpineiro@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hjimenez <hjimenez@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/16 11:27:34 by jpineiro          #+#    #+#             */
-/*   Updated: 2021/09/16 16:32:33 by jpineiro         ###   ########.fr       */
+/*   Created: 2021/09/25 09:00:54 by hjimenez          #+#    #+#             */
+/*   Updated: 2021/09/25 15:46:05 by hjimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <string.h>
+#include "libft.h"
 
-int	main()
+void	*ft_memset(void *s, int c, size_t n)
 {
+	size_t	i;
+	char	*value;
 
-	char	cadena[20];
-	printf("%s",cadena);
-	cadena[1]='\0';
-	printf("\n");
-	memset(cadena, 'S', 2);
-	printf("%s",cadena);
-	printf("\n");
-}
-	/*
-void *memset(void *s, int c, size_t n)
-{
-	for(int i=0;i<n;i++){
-		s[i]=c;
+	value = s;
+	i = 0;
+	while (i < n)
+	{
+		value[i] = c;
+		i++;
 	}
+	return (value);
 }
-*/
