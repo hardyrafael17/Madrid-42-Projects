@@ -3,16 +3,13 @@
 void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
 	size_t	i;
-	char	*destination;
-	char	*source;
 
-	source = src;
-	i = 0;
-	destination = dest;
+	if (!dest || !src)
+		return (NULL);
 	while (i < n)
 	{
-		destination[i] = *(source + i);
+		*(char *)(dest + i) = *(char *)(src + i);
 		i++;
 	}
-	return (destination);
+	return (dest);
 }
