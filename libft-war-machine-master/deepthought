@@ -1,0 +1,937 @@
+= Host-specific information ====================================================
+$> hostname; uname -msr
+hardy-HP-ProBook-640-G1
+Linux 5.11.0-36-generic x86_64
+$> date
+dom 26 sep 2021 09:41:10 CEST
+$> gcc --version
+gcc (Ubuntu 10.3.0-1ubuntu1) 10.3.0
+Copyright (C) 2020 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+$> clang --version
+Ubuntu clang version 12.0.1-1~oibaf~h
+Target: x86_64-pc-linux-gnu
+Thread model: posix
+InstalledDir: /usr/bin
+
+= libft.h=======================================================================
+$> norminette libft.h | grep -E '(Error|Warning)'
+
+= Compiling libft ==============================================================
+$> make re
+Cleaning The .o Generated Files: clean ...
+rm -rf ft_isalpha.o ft_isdigit.o ft_isalnum.o ft_isascii.o ft_isprint.o ft_strlen.o ft_bzero.o ft_memset.o ft_memcpy.o ft_memmove.o ft_strlcpy.o 
+Cleaning All .o & libft.a Generated Files:
+rm -rf libft.a
+Compiling Binary Files: ft_isalpha.o ...
+cc -Wall -Werror -Wextra -g -c ft_isalpha.c -o ft_isalpha.o -I.
+Compiling Binary Files: ft_isdigit.o ...
+cc -Wall -Werror -Wextra -g -c ft_isdigit.c -o ft_isdigit.o -I.
+Compiling Binary Files: ft_isalnum.o ...
+cc -Wall -Werror -Wextra -g -c ft_isalnum.c -o ft_isalnum.o -I.
+Compiling Binary Files: ft_isascii.o ...
+cc -Wall -Werror -Wextra -g -c ft_isascii.c -o ft_isascii.o -I.
+Compiling Binary Files: ft_isprint.o ...
+cc -Wall -Werror -Wextra -g -c ft_isprint.c -o ft_isprint.o -I.
+Compiling Binary Files: ft_strlen.o ...
+cc -Wall -Werror -Wextra -g -c ft_strlen.c -o ft_strlen.o -I.
+Compiling Binary Files: ft_bzero.o ...
+cc -Wall -Werror -Wextra -g -c ft_bzero.c -o ft_bzero.o -I.
+Compiling Binary Files: ft_memset.o ...
+cc -Wall -Werror -Wextra -g -c ft_memset.c -o ft_memset.o -I.
+Compiling Binary Files: ft_memcpy.o ...
+cc -Wall -Werror -Wextra -g -c ft_memcpy.c -o ft_memcpy.o -I.
+Compiling Binary Files: ft_memmove.o ...
+cc -Wall -Werror -Wextra -g -c ft_memmove.c -o ft_memmove.o -I.
+Compiling Binary Files: ft_strlcpy.o ...
+cc -Wall -Werror -Wextra -g -c ft_strlcpy.c -o ft_strlcpy.o -I.
+Compiling Library File: libft.a ...
+ar rcs libft.a ft_isalpha.o ft_isdigit.o ft_isalnum.o ft_isascii.o ft_isprint.o ft_strlen.o ft_bzero.o ft_memset.o ft_memcpy.o ft_memmove.o ft_strlcpy.o
+ranlib libft.a
+Compiling Library libft.a File Only Mandatory Part: all ...
+Cleaning All .o & libft.a Generated Files And Remake Everything:
+
+$> make bonus
+Compiling Binary Files: ft_isalpha.o ...
+cc -Wall -Werror -Wextra -g -c ft_isalpha.c -o ft_isalpha.o -I.
+Compiling Binary Files: ft_isdigit.o ...
+cc -Wall -Werror -Wextra -g -c ft_isdigit.c -o ft_isdigit.o -I.
+Compiling Binary Files: ft_isalnum.o ...
+cc -Wall -Werror -Wextra -g -c ft_isalnum.c -o ft_isalnum.o -I.
+Compiling Binary Files: ft_isascii.o ...
+cc -Wall -Werror -Wextra -g -c ft_isascii.c -o ft_isascii.o -I.
+Compiling Binary Files: ft_isprint.o ...
+cc -Wall -Werror -Wextra -g -c ft_isprint.c -o ft_isprint.o -I.
+Compiling Binary Files: ft_strlen.o ...
+cc -Wall -Werror -Wextra -g -c ft_strlen.c -o ft_strlen.o -I.
+Compiling Binary Files: ft_bzero.o ...
+cc -Wall -Werror -Wextra -g -c ft_bzero.c -o ft_bzero.o -I.
+Compiling Binary Files: ft_memset.o ...
+cc -Wall -Werror -Wextra -g -c ft_memset.c -o ft_memset.o -I.
+Compiling Binary Files: ft_memcpy.o ...
+cc -Wall -Werror -Wextra -g -c ft_memcpy.c -o ft_memcpy.o -I.
+Compiling Binary Files: ft_memmove.o ...
+cc -Wall -Werror -Wextra -g -c ft_memmove.c -o ft_memmove.o -I.
+Compiling Binary Files: ft_strlcpy.o ...
+cc -Wall -Werror -Wextra -g -c ft_strlcpy.c -o ft_strlcpy.o -I.
+ar rcs libft.a  ft_isalpha.o ft_isdigit.o ft_isalnum.o ft_isascii.o ft_isprint.o ft_strlen.o ft_bzero.o ft_memset.o ft_memcpy.o ft_memmove.o ft_strlcpy.o
+Compiling Library libft.a File Mandatory + Bonus Part: bonus ...
+
+$> ls -la libft.a
+-rw-rw-r-- 1 hardy hardy 36212 sep 26 09:41 /home/hardy/Documents/42-projectos/libft-war-machine-master/dirlibft/libft.a
+
+= Part1_functions ==============================================================
+
+= ft_memset.c ==================================================================
+$> norminette ft_memset.c | grep -E '(Error|Warning)'
+$> clang -Wextra -Wall -Werror -g3 -fsanitize=address ft_memset.c main.c libft.a -o user_exe
+
+= Test 1 ===================================================
+$> ./user_exe 01
+$> diff -U 3 user_output_test01 test01.output
+
+Diff OK :D
+= Test 2 ===================================================
+$> ./user_exe 02
+$> diff -U 3 user_output_test02 test02.output
+
+Diff OK :D
+= Test 3 ===================================================
+$> ./user_exe 03
+$> diff -U 3 user_output_test03 test03.output
+
+Diff OK :D
+= Test 4 ===================================================
+$> ./user_exe 04
+$> diff -U 3 user_output_test04 test04.output
+
+Diff OK :D
+
+= ft_bzero.c ===================================================================
+$> norminette ft_bzero.c | grep -E '(Error|Warning)'
+$> clang -Wextra -Wall -Werror -g3 -fsanitize=address ft_bzero.c main.c libft.a -o user_exe
+
+= Test 1 ===================================================
+$> ./user_exe 01
+$> diff -U 3 user_output_test01 test01.output
+
+Diff OK :D
+= Test 2 ===================================================
+$> ./user_exe 02
+$> diff -U 3 user_output_test02 test02.output
+
+Diff OK :D
+
+= ft_calloc.c ==================================================================
+$> norminette ft_calloc.c | grep -E '(Error|Warning)'
+../libft/ft_calloc.c: Error!
+Error: SPACE_REPLACE_TAB    (line:   4, col:   5):	Found space when expecting tab
+Error: NO_SPC_BFR_OPR       (line:   4, col:  30):	extra space before operator
+Error: NEWLINE_PRECEDES_FUNC (line:   5, col:   1):	Functions must be separated by a newline
+Error: SPACE_BEFORE_FUNC    (line:   5, col:   4):	space before function name
+Error: SPACE_REPLACE_TAB    (line:   7, col:   8):	Found space when expecting tab
+Error: FORBIDDEN_CHAR_NAME  (line:   7, col:   9):	user defined identifiers should contain only lowercase characters, digits or '_'
+Error: DECL_ASSIGN_LINE     (line:   7, col:  10):	Declaration and assignation on a single line
+Error: SPC_AFTER_OPERATOR   (line:   7, col:  10):	missing space after operator
+Error: SPC_BFR_OPERATOR     (line:   7, col:  10):	missing space before operator
+Error: SPACE_REPLACE_TAB    (line:   8, col:   8):	Found space when expecting tab
+Error: SPACE_REPLACE_TAB    (line:   9, col:   8):	Found space when expecting tab
+Error: SPC_BFR_OPERATOR     (line:  11, col:  13):	missing space before operator
+Error: SPC_BFR_PAR          (line:  11, col:  14):	Missing space before parenthesis (brace/bracket)
+Error: SPACE_AFTER_KW       (line:  11, col:  15):	Missing space after keyword
+Error: SPC_AFTER_OPERATOR   (line:  11, col:  32):	missing space after operator
+Error: FORBIDDEN_CS         (line:  12, col:   1):	Forbidden control structure
+Error: TOO_FEW_TAB          (line:  12, col:   1):	Missing tabs for indent level
+Error: SPC_AFTER_OPERATOR   (line:  12, col:  11):	missing space after operator
+Error: SPC_BFR_OPERATOR     (line:  12, col:  11):	missing space before operator
+Error: SPC_AFTER_OPERATOR   (line:  12, col:  13):	missing space after operator
+Error: SPC_AFTER_OPERATOR   (line:  12, col:  15):	missing space after operator
+Error: SPC_BFR_OPERATOR     (line:  12, col:  15):	missing space before operator
+Error: SPC_AFTER_OPERATOR   (line:  12, col:  17):	missing space after operator
+Error: TOO_FEW_TAB          (line:  12, col:  22):	Missing tabs for indent level
+Error: SPC_AFTER_OPERATOR   (line:  13, col:  32):	missing space after operator
+Error: SPC_BFR_OPERATOR     (line:  13, col:  32):	missing space before operator
+Error: TOO_FEW_TAB          (line:  15, col:   1):	Missing tabs for indent level
+Error: SPC_BFR_OPERATOR     (line:  16, col:  14):	missing space before operator
+Error: SPC_BFR_PAR          (line:  16, col:  15):	Missing space before parenthesis (brace/bracket)
+Error: SPACE_AFTER_KW       (line:  16, col:  16):	Missing space after keyword
+Error: SPC_AFTER_OPERATOR   (line:  16, col:  33):	missing space after operator
+Error: EMPTY_LINE_FUNCTION  (line:  17, col:   1):	Empty line in function
+Error: CONSECUTIVE_NEWLINES (line:  18, col:   1):	Consecutive newlines
+Error: EMPTY_LINE_FUNCTION  (line:  18, col:   1):	Empty line in function
+Error: SPACE_EMPTY_LINE     (line:  18, col:   1):	Space on empty line
+Error: TOO_MANY_TAB         (line:  20, col:   1):	Extra tabs for indent level
+Error: FORBIDDEN_CS         (line:  20, col:   9):	Forbidden control structure
+Error: SPC_AFTER_OPERATOR   (line:  20, col:  19):	missing space after operator
+Error: SPC_BFR_OPERATOR     (line:  20, col:  19):	missing space before operator
+Error: SPC_AFTER_OPERATOR   (line:  20, col:  21):	missing space after operator
+Error: SPC_AFTER_OPERATOR   (line:  20, col:  23):	missing space after operator
+Error: SPC_BFR_OPERATOR     (line:  20, col:  23):	missing space before operator
+Error: SPC_AFTER_OPERATOR   (line:  20, col:  25):	missing space after operator
+Error: TOO_FEW_TAB          (line:  20, col:  30):	Missing tabs for indent level
+Error: SPC_AFTER_OPERATOR   (line:  21, col:  33):	missing space after operator
+Error: SPC_BFR_OPERATOR     (line:  21, col:  33):	missing space before operator
+Error: SPACE_BEFORE_FUNC    (line:  25, col:   5):	space before function name
+Error: NO_SPC_BFR_OPR       (line:  25, col:  30):	extra space before operator
+Error: SPACE_REPLACE_TAB    (line:  27, col:   9):	Found space when expecting tab
+Error: SPACE_AFTER_KW       (line:  29, col:  16):	Missing space after keyword
+Error: SPACE_AFTER_KW       (line:  29, col:  29):	Missing space after keyword
+Error: SPC_AFTER_OPERATOR   (line:  29, col:  33):	missing space after operator
+Error: SPC_BFR_OPERATOR     (line:  29, col:  33):	missing space before operator
+Error: RETURN_PARENTHESIS   (line:  30, col:  12):	Return value must be in parenthesis
+Norme check failed
+$> clang -Wextra -Wall -Werror -g3 -fsanitize=address ft_calloc.c main.c libft.a -o user_exe
+
+/home/hardy/Documents/42-projectos/libft-war-machine-master/tests/Part1_functions/ft_calloc/main.c:26:17: error: implicit declaration of function 'ft_calloc' is invalid in C99 [-Werror,-Wimplicit-function-declaration]
+                str = (char *)ft_calloc(30, 1);
+                              ^
+/home/hardy/Documents/42-projectos/libft-war-machine-master/tests/Part1_functions/ft_calloc/main.c:26:17: note: did you mean 'calloc'?
+/usr/include/stdlib.h:542:14: note: 'calloc' declared here
+extern void *calloc (size_t __nmemb, size_t __size)
+             ^
+/home/hardy/Documents/42-projectos/libft-war-machine-master/tests/Part1_functions/ft_calloc/main.c:26:9: error: cast to 'char *' from smaller integer type 'int' [-Werror,-Wint-to-pointer-cast]
+                str = (char *)ft_calloc(30, 1);
+                      ^~~~~~~~~~~~~~~~~~~~~~~~
+2 errors generated.
+
+= ft_memcpy.c ==================================================================
+$> norminette ft_memcpy.c | grep -E '(Error|Warning)'
+$> clang -Wextra -Wall -Werror -g3 -fsanitize=address ft_memcpy.c main.c libft.a -o user_exe
+
+/home/hardy/Documents/42-projectos/libft-war-machine-master/dirlibft//ft_memcpy.c:9:9: error: variable 'i' is uninitialized when used here [-Werror,-Wuninitialized]
+        while (i < n)
+               ^
+/home/hardy/Documents/42-projectos/libft-war-machine-master/dirlibft//ft_memcpy.c:5:10: note: initialize the variable 'i' to silence this warning
+        size_t  i;
+                 ^
+                  = 0
+1 error generated.
+
+= ft_memccpy.c =================================================================
+$> norminette ft_memccpy.c | grep -E '(Error|Warning)'
+$> clang -Wextra -Wall -Werror -g3 -fsanitize=address ft_memccpy.c main.c libft.a -o user_exe
+
+clang: error: no such file or directory: '/home/hardy/Documents/42-projectos/libft-war-machine-master/dirlibft//ft_memccpy.c'
+
+= ft_memmove.c =================================================================
+$> norminette ft_memmove.c | grep -E '(Error|Warning)'
+$> clang -Wextra -Wall -Werror -g3 -fsanitize=address ft_memmove.c main.c libft.a -o user_exe
+
+= Test 1 ===================================================
+$> ./user_exe 01
+$> diff -U 3 user_output_test01 test01.output
+
+Diff OK :D
+= Test 2 ===================================================
+$> ./user_exe 02
+$> diff -U 3 user_output_test02 test02.output
+
+Diff OK :D
+= Test 3 ===================================================
+$> ./user_exe 03
+$> diff -U 3 user_output_test03 test03.output
+
+Diff OK :D
+= Test 4 ===================================================
+$> ./user_exe 04
+$> diff -U 3 user_output_test04 test04.output
+
+Diff OK :D
+= Test 5 ===================================================
+$> ./user_exe 05
+$> diff -U 3 user_output_test05 test05.output
+
+Diff OK :D
+
+= ft_memchr.c ==================================================================
+$> norminette ft_memchr.c | grep -E '(Error|Warning)'
+$> clang -Wextra -Wall -Werror -g3 -fsanitize=address ft_memchr.c main.c libft.a -o user_exe
+
+/home/hardy/Documents/42-projectos/libft-war-machine-master/tests/Part1_functions/ft_memchr/main.c:39:9: error: implicit declaration of function 'ft_memchr' is invalid in C99 [-Werror,-Wimplicit-function-declaration]
+                str = ft_memchr("bonjour", 'b', 4);
+                      ^
+/home/hardy/Documents/42-projectos/libft-war-machine-master/tests/Part1_functions/ft_memchr/main.c:39:9: note: did you mean 'ft_memcpy'?
+/home/hardy/Documents/42-projectos/libft-war-machine-master/tests/Part1_functions/ft_memchr/../../../libft.h:42:7: note: 'ft_memcpy' declared here
+void    *ft_memcpy(void *dest, const void *src, size_t n);
+         ^
+/home/hardy/Documents/42-projectos/libft-war-machine-master/tests/Part1_functions/ft_memchr/main.c:39:7: error: incompatible integer to pointer conversion assigning to 'const char *' from 'int' [-Werror,-Wint-conversion]
+                str = ft_memchr("bonjour", 'b', 4);
+                    ^ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/hardy/Documents/42-projectos/libft-war-machine-master/tests/Part1_functions/ft_memchr/main.c:47:9: error: implicit declaration of function 'ft_memchr' is invalid in C99 [-Werror,-Wimplicit-function-declaration]
+                str = ft_memchr("bonjour", 'o', 7);
+                      ^
+/home/hardy/Documents/42-projectos/libft-war-machine-master/tests/Part1_functions/ft_memchr/main.c:47:7: error: incompatible integer to pointer conversion assigning to 'const char *' from 'int' [-Werror,-Wint-conversion]
+                str = ft_memchr("bonjour", 'o', 7);
+                    ^ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/hardy/Documents/42-projectos/libft-war-machine-master/tests/Part1_functions/ft_memchr/main.c:55:9: error: implicit declaration of function 'ft_memchr' is invalid in C99 [-Werror,-Wimplicit-function-declaration]
+                str = ft_memchr("bonjourno", 'n', 2);
+                      ^
+/home/hardy/Documents/42-projectos/libft-war-machine-master/tests/Part1_functions/ft_memchr/main.c:55:7: error: incompatible integer to pointer conversion assigning to 'const char *' from 'int' [-Werror,-Wint-conversion]
+                str = ft_memchr("bonjourno", 'n', 2);
+                    ^ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/hardy/Documents/42-projectos/libft-war-machine-master/tests/Part1_functions/ft_memchr/main.c:63:9: error: implicit declaration of function 'ft_memchr' is invalid in C99 [-Werror,-Wimplicit-function-declaration]
+                str = ft_memchr("bonjour", 'j', 6);
+                      ^
+/home/hardy/Documents/42-projectos/libft-war-machine-master/tests/Part1_functions/ft_memchr/main.c:63:7: error: incompatible integer to pointer conversion assigning to 'const char *' from 'int' [-Werror,-Wint-conversion]
+                str = ft_memchr("bonjour", 'j', 6);
+                    ^ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/hardy/Documents/42-projectos/libft-war-machine-master/tests/Part1_functions/ft_memchr/main.c:71:9: error: implicit declaration of function 'ft_memchr' is invalid in C99 [-Werror,-Wimplicit-function-declaration]
+                str = ft_memchr("bonjour", 's', 7);
+                      ^
+/home/hardy/Documents/42-projectos/libft-war-machine-master/tests/Part1_functions/ft_memchr/main.c:71:7: error: incompatible integer to pointer conversion assigning to 'const char *' from 'int' [-Werror,-Wint-conversion]
+                str = ft_memchr("bonjour", 's', 7);
+                    ^ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/hardy/Documents/42-projectos/libft-war-machine-master/tests/Part1_functions/ft_memchr/main.c:81:24: error: implicit declaration of function 'ft_memchr' is invalid in C99 [-Werror,-Wimplicit-function-declaration]
+                printf("%s", (char *)ft_memchr(tab, -1, 7));
+                                     ^
+/home/hardy/Documents/42-projectos/libft-war-machine-master/tests/Part1_functions/ft_memchr/main.c:81:16: error: cast to 'char *' from smaller integer type 'int' [-Werror,-Wint-to-pointer-cast]
+                printf("%s", (char *)ft_memchr(tab, -1, 7));
+                             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+12 errors generated.
+
+= ft_memcmp.c ==================================================================
+$> norminette ft_memcmp.c | grep -E '(Error|Warning)'
+../libft/ft_memcmp.c: Error!
+Error: NEWLINE_PRECEDES_FUNC (line:   5, col:   1):	Functions must be separated by a newline
+Error: SPACE_BEFORE_FUNC    (line:   5, col:   4):	space before function name
+Error: NO_ARGS_VOID         (line:   5, col:  10):	Empty function argument requires void
+Error: WRONG_SCOPE_COMMENT  (line:   7, col:   5):	Comment is invalid in this scope
+Error: VAR_DECL_START_FUNC  (line:   8, col:   1):	Variable declaration not at start of function
+Error: SPACE_REPLACE_TAB    (line:   8, col:   9):	Found space when expecting tab
+Error: SPC_AFTER_PAR        (line:   8, col:  21):	Missing space after parenthesis (brace/bracket)
+Error: DECL_ASSIGN_LINE     (line:   8, col:  22):	Declaration and assignation on a single line
+Error: SPC_AFTER_OPERATOR   (line:   8, col:  22):	missing space after operator
+Error: SPC_BFR_OPERATOR     (line:   8, col:  22):	missing space before operator
+Error: SPC_BFR_PAR          (line:   8, col:  23):	Missing space before parenthesis (brace/bracket)
+Error: SPC_AFTER_OPERATOR   (line:   8, col:  44):	missing space after operator
+Error: SPC_AFTER_OPERATOR   (line:   8, col:  67):	missing space after operator
+Error: SPACE_REPLACE_TAB    (line:   9, col:   9):	Found space when expecting tab
+Error: DECL_ASSIGN_LINE     (line:   9, col:  18):	Declaration and assignation on a single line
+Error: NL_AFTER_VAR_DECL    (line:  10, col:   1):	Variable declarations must be followed by a newline
+Error: SPC_AFTER_OPERATOR   (line:  10, col:  17):	missing space after operator
+Error: VAR_DECL_START_FUNC  (line:  11, col:   1):	Variable declaration not at start of function
+Error: SPACE_REPLACE_TAB    (line:  11, col:   8):	Found space when expecting tab
+Error: MISALIGNED_VAR_DECL  (line:  11, col:   9):	Misaligned variable declaration
+Error: DECL_ASSIGN_LINE     (line:  11, col:  13):	Declaration and assignation on a single line
+Error: SPC_AFTER_OPERATOR   (line:  11, col:  36):	missing space after operator
+Error: SPC_AFTER_OPERATOR   (line:  11, col:  43):	missing space after operator
+Error: SPC_AFTER_OPERATOR   (line:  12, col:  38):	missing space after operator
+Error: SPC_AFTER_OPERATOR   (line:  12, col:  42):	missing space after operator
+Error: SPACE_AFTER_KW       (line:  13, col:   5):	Missing space after keyword
+Error: SPC_BFR_PAR          (line:  13, col:   7):	Missing space before parenthesis (brace/bracket)
+Error: BRACE_SHOULD_EOL     (line:  16, col:   5):	Expected newline after brace
+Error: TOO_FEW_TAB          (line:  16, col:   6):	Missing tabs for indent level
+Error: TOO_MANY_INSTR       (line:  16, col:   6):	Too many instructions on a single line
+Error: SPACE_BEFORE_FUNC    (line:  23, col:   4):	space before function name
+Error: SPACE_REPLACE_TAB    (line:  25, col:   8):	Found space when expecting tab
+Error: SPACE_REPLACE_TAB    (line:  26, col:   9):	Found space when expecting tab
+Error: MISALIGNED_VAR_DECL  (line:  26, col:  10):	Misaligned variable declaration
+Error: DECL_ASSIGN_LINE     (line:  26, col:  15):	Declaration and assignation on a single line
+Error: SPACE_REPLACE_TAB    (line:  27, col:   9):	Found space when expecting tab
+Error: MISALIGNED_VAR_DECL  (line:  27, col:  10):	Misaligned variable declaration
+Error: DECL_ASSIGN_LINE     (line:  27, col:  15):	Declaration and assignation on a single line
+Error: VAR_DECL_START_FUNC  (line:  29, col:   1):	Variable declaration not at start of function
+Error: SPACE_REPLACE_TAB    (line:  29, col:  17):	Found space when expecting tab
+Error: MISALIGNED_VAR_DECL  (line:  29, col:  18):	Misaligned variable declaration
+Error: DECL_ASSIGN_LINE     (line:  29, col:  19):	Declaration and assignation on a single line
+Error: SPC_AFTER_OPERATOR   (line:  29, col:  19):	missing space after operator
+Error: SPC_BFR_OPERATOR     (line:  29, col:  19):	missing space before operator
+Error: SPACE_AFTER_KW       (line:  30, col:   5):	Missing space after keyword
+Error: SPC_BFR_PAR          (line:  30, col:  10):	Missing space before parenthesis (brace/bracket)
+Error: SPACE_AFTER_KW       (line:  32, col:   9):	Missing space after keyword
+Error: SPC_BFR_PAR          (line:  32, col:  11):	Missing space before parenthesis (brace/bracket)
+Error: RETURN_PARENTHESIS   (line:  38, col:  20):	Return value must be in parenthesis
+Norme check failed
+$> clang -Wextra -Wall -Werror -g3 -fsanitize=address ft_memcmp.c main.c libft.a -o user_exe
+
+/home/hardy/Documents/42-projectos/libft-war-machine-master/dirlibft//ft_memcmp.c:26:9: error: initializing 'void **' with an expression of type 'const void *' discards qualifiers [-Werror,-Wincompatible-pointer-types-discards-qualifiers]
+        void **p1 = s1;
+               ^    ~~
+/home/hardy/Documents/42-projectos/libft-war-machine-master/dirlibft//ft_memcmp.c:27:9: error: initializing 'void **' with an expression of type 'const void *' discards qualifiers [-Werror,-Wincompatible-pointer-types-discards-qualifiers]
+        void **p2 = s2;
+               ^    ~~
+/home/hardy/Documents/42-projectos/libft-war-machine-master/dirlibft//ft_memcmp.c:38:17: error: invalid operands to binary expression ('const void' and 'const void')
+                        return s1[i] - s2[i];
+                               ~~~~~ ^ ~~~~~
+3 errors generated.
+/home/hardy/Documents/42-projectos/libft-war-machine-master/tests/Part1_functions/ft_memcmp/main.c:36:19: error: implicit declaration of function 'ft_memcmp' is invalid in C99 [-Werror,-Wimplicit-function-declaration]
+                ft_print_result(ft_memcmp("salut", "salut", 5));
+                                ^
+/home/hardy/Documents/42-projectos/libft-war-machine-master/tests/Part1_functions/ft_memcmp/main.c:36:19: note: did you mean 'ft_memcpy'?
+/home/hardy/Documents/42-projectos/libft-war-machine-master/tests/Part1_functions/ft_memcmp/../../../libft.h:42:7: note: 'ft_memcpy' declared here
+void    *ft_memcpy(void *dest, const void *src, size_t n);
+         ^
+1 error generated.
+
+= ft_strlen.c ==================================================================
+$> norminette ft_strlen.c | grep -E '(Error|Warning)'
+$> clang -Wextra -Wall -Werror -g3 -fsanitize=address ft_strlen.c main.c libft.a -o user_exe
+
+= Test 1 ===================================================
+$> ./user_exe 01
+$> diff -U 3 user_output_test01 test01.output
+
+Diff OK :D
+= Test 2 ===================================================
+$> ./user_exe 02
+$> diff -U 3 user_output_test02 test02.output
+
+Diff OK :D
+= Test 3 ===================================================
+$> ./user_exe 03
+$> diff -U 3 user_output_test03 test03.output
+
+Diff OK :D
+= Test 4 ===================================================
+$> ./user_exe 04
+$> diff -U 3 user_output_test04 test04.output
+
+Diff OK :D
+= Test 5 ===================================================
+$> ./user_exe 05
+$> diff -U 3 user_output_test05 test05.output
+
+Diff OK :D
+= Test 6 ===================================================
+$> ./user_exe 06
+$> diff -U 3 user_output_test06 test06.output
+
+Diff OK :D
+
+= ft_strdup.c ==================================================================
+$> norminette ft_strdup.c | grep -E '(Error|Warning)'
+../libft/ft_strdup.c: Error!
+Error: SPACE_BEFORE_FUNC    (line:   7, col:   4):	space before function name
+Error: DECL_ASSIGN_LINE     (line:   9, col:  22):	Declaration and assignation on a single line
+Error: MISALIGNED_VAR_DECL  (line:  23, col:  13):	Misaligned variable declaration
+Error: SPACE_AFTER_KW       (line:  26, col:  10):	Missing space after keyword
+Norme check failed
+$> clang -Wextra -Wall -Werror -g3 -fsanitize=address ft_strdup.c main.c libft.a -o user_exe
+
+/home/hardy/Documents/42-projectos/libft-war-machine-master/tests/Part1_functions/ft_strdup/main.c:38:19: error: implicit declaration of function 'ft_strdup' is invalid in C99 [-Werror,-Wimplicit-function-declaration]
+                if (!(str_dup = ft_strdup(str)))
+                                ^
+/home/hardy/Documents/42-projectos/libft-war-machine-master/tests/Part1_functions/ft_strdup/main.c:38:17: error: incompatible integer to pointer conversion assigning to 'char *' from 'int' [-Werror,-Wint-conversion]
+                if (!(str_dup = ft_strdup(str)))
+                              ^ ~~~~~~~~~~~~~~
+2 errors generated.
+
+= ft_strlcat.c =================================================================
+$> norminette ft_strlcat.c | grep -E '(Error|Warning)'
+$> clang -Wextra -Wall -Werror -g3 -fsanitize=address ft_strlcat.c main.c libft.a -o user_exe
+
+/home/hardy/Documents/42-projectos/libft-war-machine-master/tests/Part1_functions/ft_strlcat/main.c:41:19: error: implicit declaration of function 'ft_strlcat' is invalid in C99 [-Werror,-Wimplicit-function-declaration]
+                ft_print_result(ft_strlcat(dest, "lorem", 15));
+                                ^
+/home/hardy/Documents/42-projectos/libft-war-machine-master/tests/Part1_functions/ft_strlcat/main.c:41:19: note: did you mean 'ft_strlcpy'?
+/home/hardy/Documents/42-projectos/libft-war-machine-master/tests/Part1_functions/ft_strlcat/../../../libft.h:44:8: note: 'ft_strlcpy' declared here
+size_t  ft_strlcpy(char *dst, const char *src, size_t size);
+        ^
+/home/hardy/Documents/42-projectos/libft-war-machine-master/tests/Part1_functions/ft_strlcat/main.c:47:19: error: implicit declaration of function 'ft_strlcat' is invalid in C99 [-Werror,-Wimplicit-function-declaration]
+                ft_print_result(ft_strlcat(dest, "", 15));
+                                ^
+/home/hardy/Documents/42-projectos/libft-war-machine-master/tests/Part1_functions/ft_strlcat/main.c:55:19: error: implicit declaration of function 'ft_strlcat' is invalid in C99 [-Werror,-Wimplicit-function-declaration]
+                ft_print_result(ft_strlcat(dest, "lorem ipsum", 15));
+                                ^
+/home/hardy/Documents/42-projectos/libft-war-machine-master/tests/Part1_functions/ft_strlcat/main.c:62:19: error: implicit declaration of function 'ft_strlcat' is invalid in C99 [-Werror,-Wimplicit-function-declaration]
+                ft_print_result(ft_strlcat(dest, "lorem ipsum dolor sit amet", 15));
+                                ^
+/home/hardy/Documents/42-projectos/libft-war-machine-master/tests/Part1_functions/ft_strlcat/main.c:69:19: error: implicit declaration of function 'ft_strlcat' is invalid in C99 [-Werror,-Wimplicit-function-declaration]
+                ft_print_result(ft_strlcat(dest, "lorem ipsum dolor sit amet", 0));
+                                ^
+/home/hardy/Documents/42-projectos/libft-war-machine-master/tests/Part1_functions/ft_strlcat/main.c:76:19: error: implicit declaration of function 'ft_strlcat' is invalid in C99 [-Werror,-Wimplicit-function-declaration]
+                ft_print_result(ft_strlcat(dest, "lorem ipsum dolor sit amet", 1));
+                                ^
+/home/hardy/Documents/42-projectos/libft-war-machine-master/tests/Part1_functions/ft_strlcat/main.c:83:19: error: implicit declaration of function 'ft_strlcat' is invalid in C99 [-Werror,-Wimplicit-function-declaration]
+                ft_print_result(ft_strlcat(dest, "lorem ipsum dolor sit amet", 5));
+                                ^
+/home/hardy/Documents/42-projectos/libft-war-machine-master/tests/Part1_functions/ft_strlcat/main.c:90:19: error: implicit declaration of function 'ft_strlcat' is invalid in C99 [-Werror,-Wimplicit-function-declaration]
+                ft_print_result(ft_strlcat(dest, "lorem ipsum dolor sit amet", 6));
+                                ^
+/home/hardy/Documents/42-projectos/libft-war-machine-master/tests/Part1_functions/ft_strlcat/main.c:97:19: error: implicit declaration of function 'ft_strlcat' is invalid in C99 [-Werror,-Wimplicit-function-declaration]
+                ft_print_result(ft_strlcat(dest, "lorem ipsum dolor sit amet", 15));
+                                ^
+9 errors generated.
+
+= ft_strlcpy.c =================================================================
+$> norminette ft_strlcpy.c | grep -E '(Error|Warning)'
+$> clang -Wextra -Wall -Werror -g3 -fsanitize=address ft_strlcpy.c main.c libft.a -o user_exe
+
+= Test 1 ===================================================
+$> ./user_exe 01
+$> diff -U 3 user_output_test01 test01.output
+
+Diff OK :D
+= Test 2 ===================================================
+$> ./user_exe 02
+$> diff -U 3 user_output_test02 test02.output
+
+Diff OK :D
+= Test 3 ===================================================
+$> ./user_exe 03
+$> diff -U 3 user_output_test03 test03.output
+
+Diff OK :D
+= Test 4 ===================================================
+$> ./user_exe 04
+$> diff -U 3 user_output_test04 test04.output
+
+Diff OK :D
+= Test 5 ===================================================
+$> ./user_exe 05
+$> diff -U 3 user_output_test05 test05.output
+
+Diff OK :D
+
+= ft_strchr.c ==================================================================
+$> norminette ft_strchr.c | grep -E '(Error|Warning)'
+$> clang -Wextra -Wall -Werror -g3 -fsanitize=address ft_strchr.c main.c libft.a -o user_exe
+
+/home/hardy/Documents/42-projectos/libft-war-machine-master/tests/Part1_functions/ft_strchr/main.c:39:15: error: implicit declaration of function 'ft_strchr' is invalid in C99 [-Werror,-Wimplicit-function-declaration]
+                if (!(str = ft_strchr(str2, 'b')))
+                            ^
+/home/hardy/Documents/42-projectos/libft-war-machine-master/tests/Part1_functions/ft_strchr/main.c:39:13: error: incompatible integer to pointer conversion assigning to 'char *' from 'int' [-Werror,-Wint-conversion]
+                if (!(str = ft_strchr(str2, 'b')))
+                          ^ ~~~~~~~~~~~~~~~~~~~~
+/home/hardy/Documents/42-projectos/libft-war-machine-master/tests/Part1_functions/ft_strchr/main.c:50:15: error: implicit declaration of function 'ft_strchr' is invalid in C99 [-Werror,-Wimplicit-function-declaration]
+                if (!(str = ft_strchr(str2, 'o')))
+                            ^
+/home/hardy/Documents/42-projectos/libft-war-machine-master/tests/Part1_functions/ft_strchr/main.c:50:13: error: incompatible integer to pointer conversion assigning to 'char *' from 'int' [-Werror,-Wint-conversion]
+                if (!(str = ft_strchr(str2, 'o')))
+                          ^ ~~~~~~~~~~~~~~~~~~~~
+/home/hardy/Documents/42-projectos/libft-war-machine-master/tests/Part1_functions/ft_strchr/main.c:61:15: error: implicit declaration of function 'ft_strchr' is invalid in C99 [-Werror,-Wimplicit-function-declaration]
+                if (!(str = ft_strchr(str2, 'j')))
+                            ^
+/home/hardy/Documents/42-projectos/libft-war-machine-master/tests/Part1_functions/ft_strchr/main.c:61:13: error: incompatible integer to pointer conversion assigning to 'char *' from 'int' [-Werror,-Wint-conversion]
+                if (!(str = ft_strchr(str2, 'j')))
+                          ^ ~~~~~~~~~~~~~~~~~~~~
+/home/hardy/Documents/42-projectos/libft-war-machine-master/tests/Part1_functions/ft_strchr/main.c:72:15: error: implicit declaration of function 'ft_strchr' is invalid in C99 [-Werror,-Wimplicit-function-declaration]
+                if (!(str = ft_strchr(str2, 's')))
+                            ^
+/home/hardy/Documents/42-projectos/libft-war-machine-master/tests/Part1_functions/ft_strchr/main.c:72:13: error: incompatible integer to pointer conversion assigning to 'char *' from 'int' [-Werror,-Wint-conversion]
+                if (!(str = ft_strchr(str2, 's')))
+                          ^ ~~~~~~~~~~~~~~~~~~~~
+/home/hardy/Documents/42-projectos/libft-war-machine-master/tests/Part1_functions/ft_strchr/main.c:79:15: error: implicit declaration of function 'ft_strchr' is invalid in C99 [-Werror,-Wimplicit-function-declaration]
+                if (!(str = ft_strchr(str2, '\0')))
+                            ^
+/home/hardy/Documents/42-projectos/libft-war-machine-master/tests/Part1_functions/ft_strchr/main.c:79:13: error: incompatible integer to pointer conversion assigning to 'char *' from 'int' [-Werror,-Wint-conversion]
+                if (!(str = ft_strchr(str2, '\0')))
+                          ^ ~~~~~~~~~~~~~~~~~~~~~
+/home/hardy/Documents/42-projectos/libft-war-machine-master/tests/Part1_functions/ft_strchr/main.c:91:15: error: implicit declaration of function 'ft_strchr' is invalid in C99 [-Werror,-Wimplicit-function-declaration]
+                if (!(str = ft_strchr(str3, '\0')))
+                            ^
+/home/hardy/Documents/42-projectos/libft-war-machine-master/tests/Part1_functions/ft_strchr/main.c:91:13: error: incompatible integer to pointer conversion assigning to 'char *' from 'int' [-Werror,-Wint-conversion]
+                if (!(str = ft_strchr(str3, '\0')))
+                          ^ ~~~~~~~~~~~~~~~~~~~~~
+12 errors generated.
+
+= ft_strrchr.c =================================================================
+$> norminette ft_strrchr.c | grep -E '(Error|Warning)'
+$> clang -Wextra -Wall -Werror -g3 -fsanitize=address ft_strrchr.c main.c libft.a -o user_exe
+
+/home/hardy/Documents/42-projectos/libft-war-machine-master/tests/Part1_functions/ft_strrchr/main.c:39:15: error: implicit declaration of function 'ft_strrchr' is invalid in C99 [-Werror,-Wimplicit-function-declaration]
+                if (!(str = ft_strrchr(str2, 'b')))
+                            ^
+/home/hardy/Documents/42-projectos/libft-war-machine-master/tests/Part1_functions/ft_strrchr/main.c:39:13: error: incompatible integer to pointer conversion assigning to 'char *' from 'int' [-Werror,-Wint-conversion]
+                if (!(str = ft_strrchr(str2, 'b')))
+                          ^ ~~~~~~~~~~~~~~~~~~~~~
+/home/hardy/Documents/42-projectos/libft-war-machine-master/tests/Part1_functions/ft_strrchr/main.c:50:15: error: implicit declaration of function 'ft_strrchr' is invalid in C99 [-Werror,-Wimplicit-function-declaration]
+                if (!(str = ft_strrchr(str2, 'o')))
+                            ^
+/home/hardy/Documents/42-projectos/libft-war-machine-master/tests/Part1_functions/ft_strrchr/main.c:50:13: error: incompatible integer to pointer conversion assigning to 'char *' from 'int' [-Werror,-Wint-conversion]
+                if (!(str = ft_strrchr(str2, 'o')))
+                          ^ ~~~~~~~~~~~~~~~~~~~~~
+/home/hardy/Documents/42-projectos/libft-war-machine-master/tests/Part1_functions/ft_strrchr/main.c:62:15: error: implicit declaration of function 'ft_strrchr' is invalid in C99 [-Werror,-Wimplicit-function-declaration]
+                if (!(str = ft_strrchr(str3, 'o')))
+                            ^
+/home/hardy/Documents/42-projectos/libft-war-machine-master/tests/Part1_functions/ft_strrchr/main.c:62:13: error: incompatible integer to pointer conversion assigning to 'char *' from 'int' [-Werror,-Wint-conversion]
+                if (!(str = ft_strrchr(str3, 'o')))
+                          ^ ~~~~~~~~~~~~~~~~~~~~~
+/home/hardy/Documents/42-projectos/libft-war-machine-master/tests/Part1_functions/ft_strrchr/main.c:73:15: error: implicit declaration of function 'ft_strrchr' is invalid in C99 [-Werror,-Wimplicit-function-declaration]
+                if (!(str = ft_strrchr(str2, 'j')))
+                            ^
+/home/hardy/Documents/42-projectos/libft-war-machine-master/tests/Part1_functions/ft_strrchr/main.c:73:13: error: incompatible integer to pointer conversion assigning to 'char *' from 'int' [-Werror,-Wint-conversion]
+                if (!(str = ft_strrchr(str2, 'j')))
+                          ^ ~~~~~~~~~~~~~~~~~~~~~
+/home/hardy/Documents/42-projectos/libft-war-machine-master/tests/Part1_functions/ft_strrchr/main.c:84:15: error: implicit declaration of function 'ft_strrchr' is invalid in C99 [-Werror,-Wimplicit-function-declaration]
+                if (!(str = ft_strrchr(str2, 's')))
+                            ^
+/home/hardy/Documents/42-projectos/libft-war-machine-master/tests/Part1_functions/ft_strrchr/main.c:84:13: error: incompatible integer to pointer conversion assigning to 'char *' from 'int' [-Werror,-Wint-conversion]
+                if (!(str = ft_strrchr(str2, 's')))
+                          ^ ~~~~~~~~~~~~~~~~~~~~~
+/home/hardy/Documents/42-projectos/libft-war-machine-master/tests/Part1_functions/ft_strrchr/main.c:91:15: error: implicit declaration of function 'ft_strrchr' is invalid in C99 [-Werror,-Wimplicit-function-declaration]
+                if (!(str = ft_strrchr(str2, '\0')))
+                            ^
+/home/hardy/Documents/42-projectos/libft-war-machine-master/tests/Part1_functions/ft_strrchr/main.c:91:13: error: incompatible integer to pointer conversion assigning to 'char *' from 'int' [-Werror,-Wint-conversion]
+                if (!(str = ft_strrchr(str2, '\0')))
+                          ^ ~~~~~~~~~~~~~~~~~~~~~~
+/home/hardy/Documents/42-projectos/libft-war-machine-master/tests/Part1_functions/ft_strrchr/main.c:103:15: error: implicit declaration of function 'ft_strrchr' is invalid in C99 [-Werror,-Wimplicit-function-declaration]
+                if (!(str = ft_strrchr(str3, '\0')))
+                            ^
+/home/hardy/Documents/42-projectos/libft-war-machine-master/tests/Part1_functions/ft_strrchr/main.c:103:13: error: incompatible integer to pointer conversion assigning to 'char *' from 'int' [-Werror,-Wint-conversion]
+                if (!(str = ft_strrchr(str3, '\0')))
+                          ^ ~~~~~~~~~~~~~~~~~~~~~~
+/home/hardy/Documents/42-projectos/libft-war-machine-master/tests/Part1_functions/ft_strrchr/main.c:114:15: error: implicit declaration of function 'ft_strrchr' is invalid in C99 [-Werror,-Wimplicit-function-declaration]
+                if (!(str = ft_strrchr(str2 + 2, 'b')))
+                            ^
+/home/hardy/Documents/42-projectos/libft-war-machine-master/tests/Part1_functions/ft_strrchr/main.c:114:13: error: incompatible integer to pointer conversion assigning to 'char *' from 'int' [-Werror,-Wint-conversion]
+                if (!(str = ft_strrchr(str2 + 2, 'b')))
+                          ^ ~~~~~~~~~~~~~~~~~~~~~~~~~
+16 errors generated.
+
+= ft_strnstr.c =================================================================
+$> norminette ft_strnstr.c | grep -E '(Error|Warning)'
+$> clang -Wextra -Wall -Werror -g3 -fsanitize=address ft_strnstr.c main.c libft.a -o user_exe
+
+/home/hardy/Documents/42-projectos/libft-war-machine-master/tests/Part1_functions/ft_strnstr/main.c:37:15: error: implicit declaration of function 'ft_strnstr' is invalid in C99 [-Werror,-Wimplicit-function-declaration]
+                if (!(str = ft_strnstr("lorem ipsum dolor sit amet", "lorem", 15)))
+                            ^
+/home/hardy/Documents/42-projectos/libft-war-machine-master/tests/Part1_functions/ft_strnstr/main.c:37:13: error: incompatible integer to pointer conversion assigning to 'const char *' from 'int' [-Werror,-Wint-conversion]
+                if (!(str = ft_strnstr("lorem ipsum dolor sit amet", "lorem", 15)))
+                          ^ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/hardy/Documents/42-projectos/libft-war-machine-master/tests/Part1_functions/ft_strnstr/main.c:44:15: error: implicit declaration of function 'ft_strnstr' is invalid in C99 [-Werror,-Wimplicit-function-declaration]
+                if (!(str = ft_strnstr("lorem ipsum dolor sit amet", "ipsum", 15)))
+                            ^
+/home/hardy/Documents/42-projectos/libft-war-machine-master/tests/Part1_functions/ft_strnstr/main.c:44:13: error: incompatible integer to pointer conversion assigning to 'const char *' from 'int' [-Werror,-Wint-conversion]
+                if (!(str = ft_strnstr("lorem ipsum dolor sit amet", "ipsum", 15)))
+                          ^ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/hardy/Documents/42-projectos/libft-war-machine-master/tests/Part1_functions/ft_strnstr/main.c:51:15: error: implicit declaration of function 'ft_strnstr' is invalid in C99 [-Werror,-Wimplicit-function-declaration]
+                if (!(str = ft_strnstr("lorem ipsum dolor sit lorem ipsum dolor", "ipsum", 35)))
+                            ^
+/home/hardy/Documents/42-projectos/libft-war-machine-master/tests/Part1_functions/ft_strnstr/main.c:51:13: error: incompatible integer to pointer conversion assigning to 'const char *' from 'int' [-Werror,-Wint-conversion]
+                if (!(str = ft_strnstr("lorem ipsum dolor sit lorem ipsum dolor", "ipsum", 35)))
+                          ^ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/hardy/Documents/42-projectos/libft-war-machine-master/tests/Part1_functions/ft_strnstr/main.c:58:15: error: implicit declaration of function 'ft_strnstr' is invalid in C99 [-Werror,-Wimplicit-function-declaration]
+                if (!(str = ft_strnstr("lorem ipsum dolor sit amet", "", 10)))
+                            ^
+/home/hardy/Documents/42-projectos/libft-war-machine-master/tests/Part1_functions/ft_strnstr/main.c:58:13: error: incompatible integer to pointer conversion assigning to 'const char *' from 'int' [-Werror,-Wint-conversion]
+                if (!(str = ft_strnstr("lorem ipsum dolor sit amet", "", 10)))
+                          ^ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/hardy/Documents/42-projectos/libft-war-machine-master/tests/Part1_functions/ft_strnstr/main.c:65:15: error: implicit declaration of function 'ft_strnstr' is invalid in C99 [-Werror,-Wimplicit-function-declaration]
+                if (!(str = ft_strnstr("lorem ipsum dolor sit amet", "ipsumm", 30)))
+                            ^
+/home/hardy/Documents/42-projectos/libft-war-machine-master/tests/Part1_functions/ft_strnstr/main.c:65:13: error: incompatible integer to pointer conversion assigning to 'const char *' from 'int' [-Werror,-Wint-conversion]
+                if (!(str = ft_strnstr("lorem ipsum dolor sit amet", "ipsumm", 30)))
+                          ^ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/hardy/Documents/42-projectos/libft-war-machine-master/tests/Part1_functions/ft_strnstr/main.c:72:15: error: implicit declaration of function 'ft_strnstr' is invalid in C99 [-Werror,-Wimplicit-function-declaration]
+                if (!(str = ft_strnstr("lorem ipsum dolor sit amet", "dol", 30)))
+                            ^
+/home/hardy/Documents/42-projectos/libft-war-machine-master/tests/Part1_functions/ft_strnstr/main.c:72:13: error: incompatible integer to pointer conversion assigning to 'const char *' from 'int' [-Werror,-Wint-conversion]
+                if (!(str = ft_strnstr("lorem ipsum dolor sit amet", "dol", 30)))
+                          ^ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/hardy/Documents/42-projectos/libft-war-machine-master/tests/Part1_functions/ft_strnstr/main.c:79:15: error: implicit declaration of function 'ft_strnstr' is invalid in C99 [-Werror,-Wimplicit-function-declaration]
+                if (!(str = ft_strnstr("lorem ipsum dolor sit amet", "consectetur", 30)))
+                            ^
+/home/hardy/Documents/42-projectos/libft-war-machine-master/tests/Part1_functions/ft_strnstr/main.c:79:13: error: incompatible integer to pointer conversion assigning to 'const char *' from 'int' [-Werror,-Wint-conversion]
+                if (!(str = ft_strnstr("lorem ipsum dolor sit amet", "consectetur", 30)))
+                          ^ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/hardy/Documents/42-projectos/libft-war-machine-master/tests/Part1_functions/ft_strnstr/main.c:86:15: error: implicit declaration of function 'ft_strnstr' is invalid in C99 [-Werror,-Wimplicit-function-declaration]
+                if (!(str = ft_strnstr("lorem ipsum dolor sit amet", "sit", 10)))
+                            ^
+/home/hardy/Documents/42-projectos/libft-war-machine-master/tests/Part1_functions/ft_strnstr/main.c:86:13: error: incompatible integer to pointer conversion assigning to 'const char *' from 'int' [-Werror,-Wint-conversion]
+                if (!(str = ft_strnstr("lorem ipsum dolor sit amet", "sit", 10)))
+                          ^ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/hardy/Documents/42-projectos/libft-war-machine-master/tests/Part1_functions/ft_strnstr/main.c:93:15: error: implicit declaration of function 'ft_strnstr' is invalid in C99 [-Werror,-Wimplicit-function-declaration]
+                if (!(str = ft_strnstr("lorem ipsum dolor sit amet", "dolor", 15)))
+                            ^
+/home/hardy/Documents/42-projectos/libft-war-machine-master/tests/Part1_functions/ft_strnstr/main.c:93:13: error: incompatible integer to pointer conversion assigning to 'const char *' from 'int' [-Werror,-Wint-conversion]
+                if (!(str = ft_strnstr("lorem ipsum dolor sit amet", "dolor", 15)))
+                          ^ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/hardy/Documents/42-projectos/libft-war-machine-master/tests/Part1_functions/ft_strnstr/main.c:100:15: error: implicit declaration of function 'ft_strnstr' is invalid in C99 [-Werror,-Wimplicit-function-declaration]
+                if (!(str = ft_strnstr("lorem ipsum dolor sit amet", "dolor", 0)))
+                            ^
+fatal error: too many errors emitted, stopping now [-ferror-limit=]
+20 errors generated.
+
+= ft_strncmp.c =================================================================
+$> norminette ft_strncmp.c | grep -E '(Error|Warning)'
+$> clang -Wextra -Wall -Werror -g3 -fsanitize=address ft_strncmp.c main.c libft.a -o user_exe
+
+/home/hardy/Documents/42-projectos/libft-war-machine-master/tests/Part1_functions/ft_strncmp/main.c:36:19: error: implicit declaration of function 'ft_strncmp' is invalid in C99 [-Werror,-Wimplicit-function-declaration]
+                ft_print_result(ft_strncmp("salut", "salut", 5));
+                                ^
+1 error generated.
+
+= ft_atoi.c ====================================================================
+$> norminette ft_atoi.c | grep -E '(Error|Warning)'
+$> clang -Wextra -Wall -Werror -g3 -fsanitize=address ft_atoi.c main.c libft.a -o user_exe
+
+/home/hardy/Documents/42-projectos/libft-war-machine-master/tests/Part1_functions/ft_atoi/main.c:47:19: error: implicit declaration of function 'ft_atoi' is invalid in C99 [-Werror,-Wimplicit-function-declaration]
+                ft_print_result(ft_atoi("0"));
+                                ^
+1 error generated.
+
+= ft_isalpha.c =================================================================
+$> norminette ft_isalpha.c | grep -E '(Error|Warning)'
+$> clang -Wextra -Wall -Werror -g3 -fsanitize=address ft_isalpha.c main.c libft.a -o user_exe
+
+= Test 1 ===================================================
+$> ./user_exe 01
+$> diff -U 3 user_output_test01 test01.output
+
+Diff OK :D
+= Test 2 ===================================================
+$> ./user_exe 02
+$> diff -U 3 user_output_test02 test02.output
+
+Diff OK :D
+= Test 3 ===================================================
+$> ./user_exe 03
+$> diff -U 3 user_output_test03 test03.output
+
+Diff OK :D
+= Test 4 ===================================================
+$> ./user_exe 04
+$> diff -U 3 user_output_test04 test04.output
+
+Diff OK :D
+= Test 5 ===================================================
+$> ./user_exe 05
+$> diff -U 3 user_output_test05 test05.output
+
+Diff OK :D
+= Test 6 ===================================================
+$> ./user_exe 06
+$> diff -U 3 user_output_test06 test06.output
+
+Diff OK :D
+= Test 7 ===================================================
+$> ./user_exe 07
+$> diff -U 3 user_output_test07 test07.output
+
+Diff OK :D
+
+= ft_isdigit.c =================================================================
+$> norminette ft_isdigit.c | grep -E '(Error|Warning)'
+$> clang -Wextra -Wall -Werror -g3 -fsanitize=address ft_isdigit.c main.c libft.a -o user_exe
+
+= Test 1 ===================================================
+$> ./user_exe 01
+$> diff -U 3 user_output_test01 test01.output
+
+Diff OK :D
+= Test 2 ===================================================
+$> ./user_exe 02
+$> diff -U 3 user_output_test02 test02.output
+
+Diff OK :D
+= Test 3 ===================================================
+$> ./user_exe 03
+$> diff -U 3 user_output_test03 test03.output
+
+Diff OK :D
+= Test 4 ===================================================
+$> ./user_exe 04
+$> diff -U 3 user_output_test04 test04.output
+
+Diff OK :D
+= Test 5 ===================================================
+$> ./user_exe 05
+$> diff -U 3 user_output_test05 test05.output
+
+Diff OK :D
+= Test 6 ===================================================
+$> ./user_exe 06
+$> diff -U 3 user_output_test06 test06.output
+
+Diff OK :D
+= Test 7 ===================================================
+$> ./user_exe 07
+$> diff -U 3 user_output_test07 test07.output
+
+Diff OK :D
+
+= ft_isalnum.c =================================================================
+$> norminette ft_isalnum.c | grep -E '(Error|Warning)'
+$> clang -Wextra -Wall -Werror -g3 -fsanitize=address ft_isalnum.c main.c libft.a -o user_exe
+
+= Test 1 ===================================================
+$> ./user_exe 01
+$> diff -U 3 user_output_test01 test01.output
+
+Diff OK :D
+= Test 2 ===================================================
+$> ./user_exe 02
+$> diff -U 3 user_output_test02 test02.output
+
+Diff OK :D
+= Test 3 ===================================================
+$> ./user_exe 03
+$> diff -U 3 user_output_test03 test03.output
+
+Diff OK :D
+= Test 4 ===================================================
+$> ./user_exe 04
+$> diff -U 3 user_output_test04 test04.output
+
+Diff OK :D
+= Test 5 ===================================================
+$> ./user_exe 05
+$> diff -U 3 user_output_test05 test05.output
+
+Diff OK :D
+= Test 6 ===================================================
+$> ./user_exe 06
+$> diff -U 3 user_output_test06 test06.output
+
+Diff OK :D
+= Test 7 ===================================================
+$> ./user_exe 07
+$> diff -U 3 user_output_test07 test07.output
+
+Diff OK :D
+
+= ft_isascii.c =================================================================
+$> norminette ft_isascii.c | grep -E '(Error|Warning)'
+$> clang -Wextra -Wall -Werror -g3 -fsanitize=address ft_isascii.c main.c libft.a -o user_exe
+
+= Test 1 ===================================================
+$> ./user_exe 01
+$> diff -U 3 user_output_test01 test01.output
+
+Diff OK :D
+= Test 2 ===================================================
+$> ./user_exe 02
+$> diff -U 3 user_output_test02 test02.output
+
+Diff OK :D
+= Test 3 ===================================================
+$> ./user_exe 03
+$> diff -U 3 user_output_test03 test03.output
+
+Diff OK :D
+= Test 4 ===================================================
+$> ./user_exe 04
+$> diff -U 3 user_output_test04 test04.output
+
+Diff OK :D
+= Test 5 ===================================================
+$> ./user_exe 05
+$> diff -U 3 user_output_test05 test05.output
+
+Diff OK :D
+= Test 6 ===================================================
+$> ./user_exe 06
+$> diff -U 3 user_output_test06 test06.output
+
+Diff OK :D
+= Test 7 ===================================================
+$> ./user_exe 07
+$> diff -U 3 user_output_test07 test07.output
+
+Diff OK :D
+= Test 8 ===================================================
+$> ./user_exe 08
+$> diff -U 3 user_output_test08 test08.output
+
+Diff OK :D
+
+= ft_isprint.c =================================================================
+$> norminette ft_isprint.c | grep -E '(Error|Warning)'
+$> clang -Wextra -Wall -Werror -g3 -fsanitize=address ft_isprint.c main.c libft.a -o user_exe
+
+= Test 1 ===================================================
+$> ./user_exe 01
+$> diff -U 3 user_output_test01 test01.output
+
+Diff OK :D
+= Test 2 ===================================================
+$> ./user_exe 02
+$> diff -U 3 user_output_test02 test02.output
+
+Diff OK :D
+= Test 3 ===================================================
+$> ./user_exe 03
+$> diff -U 3 user_output_test03 test03.output
+
+Diff OK :D
+= Test 4 ===================================================
+$> ./user_exe 04
+$> diff -U 3 user_output_test04 test04.output
+
+Diff OK :D
+= Test 5 ===================================================
+$> ./user_exe 05
+$> diff -U 3 user_output_test05 test05.output
+
+Diff OK :D
+= Test 6 ===================================================
+$> ./user_exe 06
+$> diff -U 3 user_output_test06 test06.output
+
+Diff OK :D
+= Test 7 ===================================================
+$> ./user_exe 07
+$> diff -U 3 user_output_test07 test07.output
+
+Diff OK :D
+
+= ft_toupper.c =================================================================
+$> norminette ft_toupper.c | grep -E '(Error|Warning)'
+$> clang -Wextra -Wall -Werror -g3 -fsanitize=address ft_toupper.c main.c libft.a -o user_exe
+
+/home/hardy/Documents/42-projectos/libft-war-machine-master/tests/Part1_functions/ft_toupper/main.c:32:8: error: implicit declaration of function 'ft_toupper' is invalid in C99 [-Werror,-Wimplicit-function-declaration]
+                        c = ft_toupper(i);
+                            ^
+/home/hardy/Documents/42-projectos/libft-war-machine-master/tests/Part1_functions/ft_toupper/main.c:32:8: note: did you mean '_toupper'?
+/usr/include/ctype.h:150:12: note: '_toupper' declared here
+__exctype (_toupper);
+           ^
+/usr/include/ctype.h:102:36: note: expanded from macro '__exctype'
+#define __exctype(name) extern int name (int) __THROW
+                                   ^
+/home/hardy/Documents/42-projectos/libft-war-machine-master/tests/Part1_functions/ft_toupper/main.c:42:8: error: implicit declaration of function 'ft_toupper' is invalid in C99 [-Werror,-Wimplicit-function-declaration]
+                        c = ft_toupper(i);
+                            ^
+/home/hardy/Documents/42-projectos/libft-war-machine-master/tests/Part1_functions/ft_toupper/main.c:52:8: error: implicit declaration of function 'ft_toupper' is invalid in C99 [-Werror,-Wimplicit-function-declaration]
+                        c = ft_toupper(i);
+                            ^
+/home/hardy/Documents/42-projectos/libft-war-machine-master/tests/Part1_functions/ft_toupper/main.c:62:8: error: implicit declaration of function 'ft_toupper' is invalid in C99 [-Werror,-Wimplicit-function-declaration]
+                        c = ft_toupper(i);
+                            ^
+/home/hardy/Documents/42-projectos/libft-war-machine-master/tests/Part1_functions/ft_toupper/main.c:72:8: error: implicit declaration of function 'ft_toupper' is invalid in C99 [-Werror,-Wimplicit-function-declaration]
+                        c = ft_toupper(i);
+                            ^
+/home/hardy/Documents/42-projectos/libft-war-machine-master/tests/Part1_functions/ft_toupper/main.c:82:8: error: implicit declaration of function 'ft_toupper' is invalid in C99 [-Werror,-Wimplicit-function-declaration]
+                        c = ft_toupper(i);
+                            ^
+/home/hardy/Documents/42-projectos/libft-war-machine-master/tests/Part1_functions/ft_toupper/main.c:92:8: error: implicit declaration of function 'ft_toupper' is invalid in C99 [-Werror,-Wimplicit-function-declaration]
+                        c = ft_toupper(i);
+                            ^
+7 errors generated.
+
+= ft_tolower.c =================================================================
+$> norminette ft_tolower.c | grep -E '(Error|Warning)'
+$> clang -Wextra -Wall -Werror -g3 -fsanitize=address ft_tolower.c main.c libft.a -o user_exe
+
+/home/hardy/Documents/42-projectos/libft-war-machine-master/tests/Part1_functions/ft_tolower/main.c:32:8: error: implicit declaration of function 'ft_tolower' is invalid in C99 [-Werror,-Wimplicit-function-declaration]
+                        c = ft_tolower(i);
+                            ^
+/home/hardy/Documents/42-projectos/libft-war-machine-master/tests/Part1_functions/ft_tolower/main.c:32:8: note: did you mean '_tolower'?
+/usr/include/ctype.h:151:12: note: '_tolower' declared here
+__exctype (_tolower);
+           ^
+/usr/include/ctype.h:102:36: note: expanded from macro '__exctype'
+#define __exctype(name) extern int name (int) __THROW
+                                   ^
+/home/hardy/Documents/42-projectos/libft-war-machine-master/tests/Part1_functions/ft_tolower/main.c:42:8: error: implicit declaration of function 'ft_tolower' is invalid in C99 [-Werror,-Wimplicit-function-declaration]
+                        c = ft_tolower(i);
+                            ^
+/home/hardy/Documents/42-projectos/libft-war-machine-master/tests/Part1_functions/ft_tolower/main.c:52:8: error: implicit declaration of function 'ft_tolower' is invalid in C99 [-Werror,-Wimplicit-function-declaration]
+                        c = ft_tolower(i);
+                            ^
+/home/hardy/Documents/42-projectos/libft-war-machine-master/tests/Part1_functions/ft_tolower/main.c:62:8: error: implicit declaration of function 'ft_tolower' is invalid in C99 [-Werror,-Wimplicit-function-declaration]
+                        c = ft_tolower(i);
+                            ^
+/home/hardy/Documents/42-projectos/libft-war-machine-master/tests/Part1_functions/ft_tolower/main.c:72:8: error: implicit declaration of function 'ft_tolower' is invalid in C99 [-Werror,-Wimplicit-function-declaration]
+                        c = ft_tolower(i);
+                            ^
+/home/hardy/Documents/42-projectos/libft-war-machine-master/tests/Part1_functions/ft_tolower/main.c:82:8: error: implicit declaration of function 'ft_tolower' is invalid in C99 [-Werror,-Wimplicit-function-declaration]
+                        c = ft_tolower(i);
+                            ^
+/home/hardy/Documents/42-projectos/libft-war-machine-master/tests/Part1_functions/ft_tolower/main.c:92:8: error: implicit declaration of function 'ft_tolower' is invalid in C99 [-Werror,-Wimplicit-function-declaration]
+                        c = ft_tolower(i);
+                            ^
+7 errors generated.
