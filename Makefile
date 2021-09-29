@@ -6,7 +6,7 @@
 #    By: hjimenez <hjimenez@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/08 13:03:20 by adiaz-lo          #+#    #+#              #
-#    Updated: 2021/09/29 15:01:09 by hjimenez         ###   ########.fr        #
+#    Updated: 2021/09/29 15:19:43 by hjimenez         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,8 +30,8 @@ SRCS_MAND	=	ft_isalpha.c	\
 		 		ft_strrchr.c	\
 				ft_strncmp.c	\
 		  		ft_memchr.c		\
-#		  		ft_memmove.c	\
 		  		ft_memcmp.c		\
+#		  		ft_memmove.c	\
 		  		ft_memccpy.c	\
 		  		ft_atoi.c		\
 		  		ft_strnstr.c	\

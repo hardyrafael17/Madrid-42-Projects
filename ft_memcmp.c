@@ -1,43 +1,34 @@
-#include <stdio.h>
-#include <string.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hjimenez <hjimenez@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/09/29 14:25:44 by hjimenez          #+#    #+#             */
+/*   Updated: 2021/09/29 15:32:07 by hjimenez         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-int	ft_memcmp(const void *s1, const void *s2, size_t n);
-int main()
+#include "libft.h"
+
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	//char *wakebuff[2]={"Hola, Xiao Ai","Hola, compañero de clase Xiao Ai"};
-	char *exitbuff[3]={"Sistema de salidaI","palir del programaIy","abandonar"};
-	char *result = "palir del programap";
-	printf("%s\n",exitbuff[1]);
-	int res = ft_memcmp(exitbuff[1],result,444);
-	printf("res is = %d    len= %lu\n",res,strlen(result));
-	if(res == 0)
-	{
-		printf("compared sucessful\n\n");
-	}else
-	{
-		printf("compared fail\n\n");
-	}
-	return (0);
-}
+	size_t			i;
+	unsigned char	*string;
+	unsigned char	*string2;
 
-int ft_memcmp(const void *s1, const void *s2, size_t n)
-{
-	int res;
-	void **p1 = s1;
-	void **p2 = s2;
-
-	unsigned int i=0;
-	while(i < n)
+	string = (unsigned char *)s1;
+	string2 = (unsigned char *)s2;
+	i = 0;
+	while (i < n)
 	{
-		if(p1[i] == p2[i])
+		if (*(string + i) != *(string2 + i))
 		{
-			res = 0;
-		}
-		else
-		{
-			return s1[i] - s2[i];
+			return (*(string + i) \
+			 - *(string2 + i));
 		}
 		i++;
 	}
-	return (res);
+	return (0);
 }
