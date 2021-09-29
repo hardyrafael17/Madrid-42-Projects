@@ -1,25 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strupcase.c                                     :+:      :+:    :+:   */
+/*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jpineiro <jpineiro@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hjimenez <hjimenez@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/25 03:40:11 by jpineiro          #+#    #+#             */
-/*   Updated: 2021/08/25 03:40:14 by jpineiro         ###   ########.fr       */
+/*   Created: 2021/09/28 13:49:46 by hjimenez          #+#    #+#             */
+/*   Updated: 2021/09/28 13:58:59 by hjimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strupcase(char *str)
+int	ft_toupper(int c)
 {
-	int	c;
-
-	c = 0;
-	while (str[c] != '\0')
+	if (c > 96 && c < 123)
 	{
-		 if ((str[c] > 96) && (str[c] < 123))
-			str[c] -= 32;
-		c++;
+		return (c - 32);
 	}
-	return (str);
+	else
+	{
+		return (c);
+	}
 }

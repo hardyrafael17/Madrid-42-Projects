@@ -3,23 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jpineiro <jpineiro@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hjimenez <hjimenez@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/25 03:40:11 by jpineiro          #+#    #+#             */
-/*   Updated: 2021/09/15 20:34:07 by jpineiro         ###   ########.fr       */
+/*   Updated: 2021/09/28 14:00:55 by hjimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strlowcase(char *str)
+int	ft_tolower(int c)
 {
-	int	c;
-
-	c = 0;
-	while (str[c] != '\0')
+	if (c > 64 && c < 91)
 	{
-		 if ((str[c] > 64) && (str[c] < 91))
-			str[c] += 32;
-		c++;
+		return (c + 32);
 	}
-	return (str);
+	else
+	{
+		return (c);
+	}
 }
