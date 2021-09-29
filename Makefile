@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: hjimenez <hjimenez@student.42madrid.com    +#+  +:+       +#+         #
+#    By: hjimenez <hjimenez@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/08 13:03:20 by adiaz-lo          #+#    #+#              #
-#    Updated: 2021/09/28 14:20:35 by hjimenez         ###   ########.fr        #
+#    Updated: 2021/09/29 12:50:36 by hjimenez         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,13 +28,13 @@ SRCS_MAND	=	ft_isalpha.c	\
 		  		ft_tolower.c	\
 		 	 	ft_strchr.c		\
 		 		ft_strrchr.c	\
+				ft_strncmp.c	\
 #		  		ft_memmove.c	\
 		  		ft_memchr.c		\
 		  		ft_memcmp.c		\
 		  		ft_memccpy.c	\
 		  		ft_atoi.c		\
 		  		ft_strnstr.c	\
-				ft_strncmp.c	\
 		  		ft_atoi.c		\
 		  		ft_isalpha.c	\
 		  		ft_calloc.c		\
@@ -103,9 +103,5 @@ fclean	:	clean
 
 re	:	fclean all
 		@echo Cleaning All ".o & libft.a" Generated Files And Remake Everything:
-
-so:
-	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRC)
-	gcc -nostartfiles -shared -o libft.so $(OBJ)
 
 .PHONY:		all clean fclean re bonus

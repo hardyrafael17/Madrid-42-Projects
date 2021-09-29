@@ -3,26 +3,36 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jpineiro <jpineiro@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hjimenez <hjimenez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/24 12:15:58 by jpineiro          #+#    #+#             */
-/*   Updated: 2021/08/24 12:16:03 by jpineiro         ###   ########.fr       */
+/*   Updated: 2021/09/29 13:40:07 by hjimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strncmp(char	*s1, char *s2, unsigned int n)
+#include "libft.h"
+
+static int
+	ft_char_compare(char c1, char c2)
 {
-	unsigned int	i;
+	if ((unsigned char)c1 != (unsigned char)c2)
+		return ((unsigned char)c1 - (unsigned char)c2);
+	return (0);
+}
+
+int
+	ft_strncmp(const char *s1, const char *s2, size_t n)
+{
+	size_t			i;
 
 	i = 0;
-	while (*s1 && *s2 && i < (n - 1))
+	while (s1[i] && s2[i] && i < n)
 	{
-		if (s1[i] != s2[i])
-			break ;
+		if (ft_char_compare(s1[i], s2[i]))
+			return (s1[i] - s2[i]);
 		i++;
 	}
-	if (n > 0)
-		return (s1[i] - s2[i]);
-	else
-		return (0);
+	if (i < n)
+		return (ft_char_compare(s1[i], s2[i]));
+	return (0);
 }
