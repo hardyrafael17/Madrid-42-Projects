@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: hjimenez <hjimenez@student.42.fr>          +#+  +:+       +#+         #
+#    By: hjimenez <hjimenez@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/08 13:03:20 by adiaz-lo          #+#    #+#              #
-#    Updated: 2021/09/29 16:03:30 by hjimenez         ###   ########.fr        #
+#    Updated: 2021/10/01 20:45:41 by hjimenez         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,9 +32,9 @@ SRCS_MAND	=	ft_isalpha.c	\
 		  		ft_memchr.c		\
 		  		ft_memcmp.c		\
 		  		ft_strnstr.c	\
+		  		ft_atoi.c		\
 #		  		ft_memmove.c	\
 		  		ft_memccpy.c	\
-		  		ft_atoi.c		\
 		  		ft_atoi.c		\
 		  		ft_isalpha.c	\
 		  		ft_calloc.c		\
