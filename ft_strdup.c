@@ -1,34 +1,11 @@
-#include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
+#include "libft.h"
 
-char	*ft_strdup(const char *s1);
-
-int main(void)
+char	*ft_strdup(const char *s)
 {
-	char	cadena[] = "dh8 programa";
-	char	*puntero;
-	char	*p2;
+	char	*duplicate;
 
-	puntero = ft_strdup(cadena);
-	p2 = strdup(cadena);
-	printf("%s\n", puntero);
-	printf("%s\n", p2);
-	free(puntero);
-}
-
-char	*ft_strdup(const char *s1)
-{
-	int	i;
-	char	*p;
-
-	i = 0;
-	p = (char*)malloc(3 * sizeof(char));
-	while (s1[i] != '\0')
-	{
-		p[i] = s1[i];
-		i++;
-	}
-	p[i] = '\0';
-	return (p);
+	duplicate = ft_calloc(ft_strlen(s) + 1, sizeof(char));
+	ft_memcpy(duplicate, s, ft_strlen(s));
+	return (duplicate);
 }
