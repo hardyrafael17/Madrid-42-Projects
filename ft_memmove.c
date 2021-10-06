@@ -5,7 +5,7 @@ void
 {
 	int	i;
 
-	if (!dest || !src)
+	if ((char *)dest == NULL && (char *) src == NULL)
 		return (NULL);
 	if (dest > src)
 	{
