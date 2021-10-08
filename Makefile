@@ -6,7 +6,7 @@
 #    By: hjimenez <hjimenez@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/08 13:03:20 by adiaz-lo          #+#    #+#              #
-#    Updated: 2021/10/04 08:58:48 by hjimenez         ###   ########.fr        #
+#    Updated: 2021/10/08 09:49:16 by hjimenez         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -84,6 +84,10 @@ $(NAME)	:	$(OBJS_MAND)
 		$(AR) $(NAME) $(OBJS_MAND)
 		$(RANLIB) $(NAME)
 
+so:
+	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRCS_MAND) $(SRCS_BON)
+	gcc -nostartfiles -shared -o libft.so $(OBJS_MAND) $(OBJS_BON)
+
 %.o:	%.c
 		@echo Compiling Binary Files: $@ ...
 		$(CC) $(CFLAGS) -c $< -o $@ $(LFLAGS)
@@ -99,7 +103,7 @@ clean	:
 
 fclean	:	clean
 		@echo Cleaning All ".o & libft.a" Generated Files:
-		$(RM) $(NAME)
+		$(RM) $(NAME) *.so
 
 re	:	fclean all
 		@echo Cleaning All ".o & libft.a" Generated Files And Remake Everything:
