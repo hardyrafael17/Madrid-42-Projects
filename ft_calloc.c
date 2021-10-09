@@ -8,6 +8,8 @@ void	*ft_calloc(size_t nmemb, size_t size)
 
 	nbytes = size * nmemb;
 	puntero = malloc(nbytes);
+	if (!puntero)
+		return (NULL);
 	ft_bzero(puntero, nbytes);
 	return (puntero);
 }

@@ -6,7 +6,7 @@
 /*   By: hjimenez <hjimenez@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 07:57:23 by hjimenez          #+#    #+#             */
-/*   Updated: 2021/10/04 10:18:35 by hjimenez         ###   ########.fr       */
+/*   Updated: 2021/10/09 12:15:04 by hjimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,29 +14,26 @@
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	FILE	*file;
-	size_t	i;
-	size_t	j;
-	char	*trimmed;
+	size_t	size_set;
+	size_t	size_s1;
+	size_t	start;
+	size_t	end;
+	char	*result;
 
-	file = fopen("testsssss.txt", "a");
-	i = 0;
-	j = ft_strlen(s1);
-	fprintf(file, "\n j =%zu", j);
-	while (ft_strchr(set, s1[i]))
-	{
-		i++;
-	}
-	while (ft_strchr(set, s1[j - 1]))
-	{
-		fprintf(file, "\nHit %zu and s1 =*%c* and\
-		 set**%s**  return ****%s****\n", j, s1 [j - 1] \
-		, set, ft_strchr(set, s1 [j - 1]));
-		j--;
-	}
-	fprintf(file, "\nfunction called with string ---*%s*---- and set ----*%s*----\n	\
-	i=%zu		j=%zu", s1, set, i, j);
-	trimmed = ft_substr(s1, i, j - i);
-	fprintf(file, "\n			result %s", trimmed);
-	return (trimmed);
+	if (!s1 || !set)
+		return (NULL);
+	size_set = (ft_strlen(set));
+	size_s1 = (ft_strlen(s1));
+	start = 0;
+	while (ft_memchr(set,*(s1 + start), size_set))
+		start++;
+	if (start >= size_s1)
+		return (ft_calloc(1, 1));
+	end = size_s1;
+	while (ft_memchr(set, *(s1 + end), size_set))
+		end--;
+	result = ft_substr(s1, start, end - start + 1);
+	if (!result)
+		return (NULL);
+	return (result);
 }

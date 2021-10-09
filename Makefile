@@ -6,14 +6,14 @@
 #    By: hjimenez <hjimenez@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/08 13:03:20 by adiaz-lo          #+#    #+#              #
-#    Updated: 2021/10/08 09:49:16 by hjimenez         ###   ########.fr        #
+#    Updated: 2021/10/08 10:46:52 by hjimenez         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		= libft.a
 
-SRCS_MAND	=	ft_isalpha.c	\
-				ft_isdigit.c	\
+SRCS_MAND	=	ft_isdigit.c	\
+				ft_isalpha.c	\
 				ft_isalnum.c	\
 		  		ft_isascii.c	\
 		 		ft_isprint.c	\
