@@ -2,10 +2,10 @@
 
 int	ft_atoi(const char *nptr)
 {
-	char	*str;
-	int		i;
-	int		result;
-	int		sign;
+	char		*str;
+	size_t		i;
+	size_t		result;
+	int			sign;
 
 	str = (char *)nptr;
 	sign = 1;
@@ -20,9 +20,10 @@ int	ft_atoi(const char *nptr)
 	if (ft_isdigit(str[i]))
 		result = str[i++] - 48;
 	while (ft_isdigit(str[i]))
-	{
-		result *= 10;
-		result += str[i++] - 48;
-	}
+		result = (result * 10) + (str[i++] - 48);
+	if (result > 2147483647 && sign == 1)
+		return (-1);
+	else if (result > 2147483648 && sign == -1)
+		return (0);
 	return (result * sign);
 }
