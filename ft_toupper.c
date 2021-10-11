@@ -6,9 +6,11 @@
 /*   By: hjimenez <hjimenez@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/28 13:49:46 by hjimenez          #+#    #+#             */
-/*   Updated: 2021/09/29 21:41:27 by hjimenez         ###   ########.fr       */
+/*   Updated: 2021/10/10 08:36:46 by hjimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 int	ft_toupper(int c)
 {
