@@ -6,7 +6,7 @@
 #    By: hjimenez <hjimenez@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/08 13:03:20 by adiaz-lo          #+#    #+#              #
-#    Updated: 2021/10/13 10:12:17 by hjimenez         ###   ########.fr        #
+#    Updated: 2021/10/16 20:33:10 by hjimenez         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,14 +40,15 @@ SRCS_MAND	=	ft_isdigit.c	\
 				ft_strtrim.c	\
 				ft_split.c		\
 				ft_itoa.c		\
-#		  		ft_memmove.c	\
-		  		ft_memccpy.c	\
-		  		ft_isalpha.c	\
 				ft_strmapi.c	\
+				ft_striteri.c	\
 				ft_putchar_fd.c	\
 				ft_putstr_fd.c	\
 				ft_putendl_fd.c	\
 				ft_putnbr_fd.c
+#		  		ft_memmove.c	\
+		  		ft_memccpy.c	\
+		  		ft_isalpha.c	\
 
 # SRCS_BON	=	ft_lstnew.c			\
 				ft_lstadd_front.c	\

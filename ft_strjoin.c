@@ -6,7 +6,7 @@
 /*   By: hjimenez <hjimenez@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 07:46:12 by hjimenez          #+#    #+#             */
-/*   Updated: 2021/10/08 11:21:33 by hjimenez         ###   ########.fr       */
+/*   Updated: 2021/10/15 22:12:50 by hjimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,9 @@
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
-	char	*joined;
+	if(!s1 || !s2)
+		return (NULL);
+	char *joined;
 	size_t	len;
 
 	len = (ft_strlen(s1) + ft_strlen(s2)) + 1;

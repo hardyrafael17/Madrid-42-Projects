@@ -1,23 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_tolower.c                                       :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hjimenez <hjimenez@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/25 03:40:11 by jpineiro          #+#    #+#             */
-/*   Updated: 2021/10/15 16:53:59 by hjimenez         ###   ########.fr       */
+/*   Created: 2021/10/16 19:57:00 by hjimenez          #+#    #+#             */
+/*   Updated: 2021/10/16 20:00:50 by hjimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_tolower(int c)
+#include "libft.h"
+
+void	ft_putchar_fd(char c, int fd)
 {
-	if ((char)c > 64 && (char)c < 91)
-	{
-		return ((char)c + 32);
-	}
-	else
-	{
-		return (c);
-	}
+	write(fd, &c, 1);
+	return ;
 }

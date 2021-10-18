@@ -5,83 +5,77 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hjimenez <hjimenez@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/13 09:59:19 by hjimenez          #+#    #+#             */
-/*   Updated: 2021/10/13 12:45:47 by hjimenez         ###   ########.fr       */
+/*   Created: 2021/10/15 21:30:17 by hjimenez          #+#    #+#             */
+/*   Updated: 2021/10/15 22:10:39 by hjimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <limits.h>
 
-char	*ft_itoa(int n)
+static size_t	ft_convert_number(int n)
 {
-	FILE	*file;
-	int		sign;
-	int		arrlength;
-	char	*character;
-	int		countArrLength;
-	size_t	index;
-	sign = 1;
-	arrlength = 1;
-	file = fopen("ft_Itoa.txt", "a");
-	fprintf(file, "\ncalled with %d,\n", n);
-	fclose(file);
-	if (n == -2147483648)
-		{
-			character = ft_calloc(12, sizeof(char));
-			if(!character)
-				return (NULL);
-			character = "-2147483648";
-			return (character);
-		}
+	size_t	nn;
+
+	if (n < 0)
+	{
+		nn = (n + 1) * -1;
+		nn++;
+	}
+	else
+		nn = n;
+	return (nn);
+}
+
+static int	get_arr_size(int n)
+{
+	signed int	sign;
+	size_t		stn;
+	size_t		arr_length;
+
+	arr_length = 1;
 	if (n == 0)
-		return ("0");
+		return (2);
+	else if (n == INT_MIN)
+		return (12);
 	if (n < 0)
 	{
 		sign = -1;
-		n *= sign;
+		stn = (n * sign);
+		arr_length++;
 	}
-	index = 0;
-	countArrLength = n;
-	//get needed array length
-	while (countArrLength != 0)
+	else
+		stn = n;
+	while (stn != 0)
 	{
-		countArrLength = (countArrLength / 10);
-		arrlength++;
+		stn = (stn / 10);
+		arr_length++;
 	}
-	if(sign == -1)
-		{
-			character = ft_calloc(arrlength +1 , 1);
-			if (!character)
-				return (NULL);
-			character[0] = '-';
-			index++;
-		}
-	else 
-		{
-			character = ft_calloc(arrlength, 1);
-				if (!character)
-				return (NULL);
-		}
+	return (arr_length);
+}
+
+char	*ft_itoa(int n)
+{
+	size_t	nn;
+	int		arrlength;
+	char	*character;
+	size_t	index;
+
+	arrlength = get_arr_size(n);
+	character = ft_calloc(arrlength--, sizeof(char));
 	if (!character)
 		return (NULL);
-	file = fopen("ft_Itoa.txt", "a");
-	fprintf(file, "\ncalled with %d, sign '%d' Array Length>>>%d\n", n, sign, arrlength);
-	fclose(file);
-	////////////////////////
-	while (n != 0)
+	if (n < 0)
+		character[0] = '-';
+	nn = ft_convert_number(n);
+	if (n == 0)
+		character[0] = '0';
+	index = 0;
+	while (nn != 0)
 	{
-		if(sign == -1){
-		*(character + arrlength - index)= '0' + n % 10;
-		}
-		else {
-		*(character + (arrlength -2) - index)= '0' + n % 10;
-		}
-		n = (n / 10);
+		*(character + arrlength - 1 - index) = '0' + nn % 10;
+		nn = (nn / 10);
 		index++;
 	}
-	file = fopen("ft_Itoa.txt", "a");
-	fprintf(file, "Result >>%s\n", character);
-	fclose(file);
 	return (character);
 }
-//-2,147,483,648 to 2,147,483,647
