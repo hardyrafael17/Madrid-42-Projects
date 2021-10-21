@@ -6,7 +6,7 @@
 #    By: hjimenez <hjimenez@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/08 13:03:20 by adiaz-lo          #+#    #+#              #
-#    Updated: 2021/10/21 13:46:27 by hjimenez         ###   ########.fr        #
+#    Updated: 2021/10/21 15:36:41 by hjimenez         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,15 +49,15 @@ SRCS_MAND	=	ft_isdigit.c	\
 				ft_lstnew.c		\
 		  		ft_lstadd_front.c\
 				ft_lstsize.c		\
+				ft_lstlast.c		\
+				ft_lstadd_back.c	\
+				ft_lstdelone.c		\
+				ft_lstclear.c		\
 #		  		ft_memmove.c	\
 		  		ft_isalpha.c	\
 
 # SRCS_BON	=		\
 				ft_lstsize.c		\
-				ft_lstlast.c		\
-				ft_lstadd_back.c	\
-				ft_lstdelone.c		\
-				ft_lstclear.c		\
 				ft_lstiter.c		\
 				ft_lstmap.c
 
