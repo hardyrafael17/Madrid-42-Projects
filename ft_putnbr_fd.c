@@ -4,9 +4,9 @@ static int
 	ft_abs(int nbr)
 {
 	if (nbr < 0)
-		return -nbr;
+		return (-nbr);
 	else
-		return nbr;
+		return (nbr);
 }
 
 void
