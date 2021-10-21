@@ -1,23 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_tolower.c                                       :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hjimenez <hjimenez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/25 03:40:11 by jpineiro          #+#    #+#             */
-/*   Updated: 2021/10/19 15:33:56 by hjimenez         ###   ########.fr       */
+/*   Created: 2021/10/21 13:37:16 by hjimenez          #+#    #+#             */
+/*   Updated: 2021/10/21 13:55:11 by hjimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_tolower(int c)
+#include "libft.h"
+
+int ft_lstsize(t_list *lst)
 {
-	if (c > 64 && c < 91)
+	int i;
+	t_list *node;
+	
+	node = lst;
+	
+	i = 0;
+	if(!lst)
+		return(0);
+	while (node->next != NULL)
 	{
-		return (c + 32);
+		node = node->next;
+		i++;
 	}
-	else
-	{
-		return (c);
-	}
+	i++;
+	return (i);
 }
