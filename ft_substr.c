@@ -3,15 +3,18 @@
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*substring;
+	size_t	s_size_str;
 
 	if (!s)
 		return (NULL);
-	substring = ft_calloc(len + 1, sizeof(char));
-	if (substring == 0)
+	s_size_str = ft_strlen(s);
+	substring = ft_calloc(11,1);
+	if (!substring)
 		return (NULL);
-	if (start > ft_strlen(s))
+	if (start > s_size_str)
 		return (substring);
 	if (!ft_strlcpy(substring, s + start, len + 1))
 		return (NULL);
-	return (substring);
+
+	return ((char *)substring);
 }
