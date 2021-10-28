@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hjimenez <hjimenez@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hjimenez <hjimenez@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/19 22:42:25 by hjimenez          #+#    #+#             */
-/*   Updated: 2021/10/28 19:41:39 by hjimenez         ###   ########.fr       */
+/*   Updated: 2021/10/28 23:06:00 by hjimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

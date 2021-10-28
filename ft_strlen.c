@@ -6,7 +6,7 @@
 /*   By: hjimenez <hjimenez@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/20 11:27:16 by jpineiro          #+#    #+#             */
-/*   Updated: 2021/09/29 21:56:06 by hjimenez         ###   ########.fr       */
+/*   Updated: 2021/10/28 23:28:38 by hjimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ size_t	ft_strlen(const char *str)
 	size_t	i;
 
 	i = 0;
-	 while (str[i] != 0)
+	while (str[i] != 0)
 	{
 		i++;
 	}

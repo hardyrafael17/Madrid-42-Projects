@@ -6,7 +6,7 @@
 /*   By: hjimenez <hjimenez@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 07:46:12 by hjimenez          #+#    #+#             */
-/*   Updated: 2021/10/15 22:12:50 by hjimenez         ###   ########.fr       */
+/*   Updated: 2021/10/28 23:28:22 by hjimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
-	if(!s1 || !s2)
-		return (NULL);
-	char *joined;
+	char	*joined;
 	size_t	len;
 
+	if (!s1 || !s2)
+		return (NULL);
 	len = (ft_strlen(s1) + ft_strlen(s2)) + 1;
 	joined = ft_calloc(len, sizeof(char));
 	if (!joined)

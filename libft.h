@@ -6,7 +6,7 @@
 /*   By: hjimenez <hjimenez@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/11 13:03:04 by adiaz-lo          #+#    #+#             */
-/*   Updated: 2021/10/22 16:43:00 by hjimenez         ###   ########.fr       */
+/*   Updated: 2021/10/28 23:32:04 by hjimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,6 @@ typedef struct s_list
 	void			*content;
 	struct s_list	*next;
 }					t_list;
-
-/*
-** PART 1 - MANDATORY PART
-*/
 
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
