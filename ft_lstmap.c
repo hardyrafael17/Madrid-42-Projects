@@ -3,27 +3,27 @@
 
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	t_list *new_list;
-	t_list *save;
+	t_list *new_node;
+	t_list **first_node;
 
-	if (!lst || !f || !del)
-		return (0);
-	new_list = ft_lstnew(f(lst->content));
-	if (!new_list)
-		return (0);
-	save = new_list;
-	lst = lst->next;
+	if (!lst || !f)
+		return (NULL);
+	first_node = NULL;
 	while (lst)
 	{
-		new_list->next = ft_lstnew(f(lst->content));
-		if (!new_list->next)
+		new_node = ft_lstnew(f(lst->content));
+		if(!new_node)
 		{
-			ft_lstclear(&save, del);
-			return (0);
+			ft_lstclear(first_node, del);
+			return (NULL);
 		}
-		new_list = new_list->next;
+		if(!first_node)
+		{
+			first_node = &new_node;
+		}
+		ft_lstadd_back(first_node, new_node);
 		lst = lst->next;
 	}
-	new_list->next = NULL;
-	return (save);
+	return (*first_node);
 }
+
