@@ -6,7 +6,7 @@
 /*   By: hjimenez <hjimenez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 15:35:28 by hjimenez          #+#    #+#             */
-/*   Updated: 2021/10/21 16:12:24 by hjimenez         ###   ########.fr       */
+/*   Updated: 2021/10/28 19:41:58 by hjimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 void	ft_lstclear(t_list **lst, void (*del)(void*))
 {
 	t_list	*tmp;
+
 	if (!del || !lst || !*lst)
 		return ;
 	while (lst && *lst)
@@ -25,4 +26,3 @@ void	ft_lstclear(t_list **lst, void (*del)(void*))
 		*lst = tmp;
 	}
 }
-
