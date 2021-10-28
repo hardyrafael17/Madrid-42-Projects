@@ -36,23 +36,15 @@ size_t	count_words(char const *s, char c)
 	return (words);
 }
 
-char	**ft_split(char const *s, char c)
+void	create_arr(char **arr, char const *s, char c)
 {
 	size_t	words;
 	size_t	i;
-	char	**arr;
 	size_t	wordLength;
 
-	if (!s)
-		return (NULL);
 	wordLength = 0;
-	words = count_words (s, c);
-	arr = ft_calloc(words + 1, sizeof(char *));
-	if (!arr)
-		return (NULL);
 	words = 0;
 	i = 0;
-	wordLength = 0;
 	while (*(s + i))
 	{
 		if (*(s + i) != c)
@@ -68,6 +60,20 @@ char	**ft_split(char const *s, char c)
 		}
 		i++;
 	}
+	return ;
+}
+char	**ft_split(char const *s, char c)
+{
+	size_t	words;
+	char	**arr;
+
+	if (!s)
+		return (NULL);
+	words = count_words (s, c);
+	arr = ft_calloc(words + 1, sizeof(char *));
+	if (!arr)
+		return (NULL);
+	create_arr(arr, s, c);
 	return (arr);
 }
 
