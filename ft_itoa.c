@@ -6,12 +6,11 @@
 /*   By: hjimenez <hjimenez@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/15 21:30:17 by hjimenez          #+#    #+#             */
-/*   Updated: 2021/10/28 23:05:53 by hjimenez         ###   ########.fr       */
+/*   Updated: 2021/11/12 16:21:52 by hjimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <limits.h>
 
 static size_t	ft_convert_number(int n)
 {
@@ -36,7 +35,7 @@ static int	get_arr_size(int n)
 	arr_length = 1;
 	if (n == 0)
 		return (2);
-	else if (n == INT_MIN)
+	else if (n == -2147483648)
 		return (12);
 	if (n < 0)
 	{

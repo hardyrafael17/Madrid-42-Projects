@@ -6,11 +6,10 @@
 /*   By: hjimenez <hjimenez@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/28 23:06:44 by hjimenez          #+#    #+#             */
-/*   Updated: 2021/10/28 23:06:45 by hjimenez         ###   ########.fr       */
+/*   Updated: 2021/11/12 16:24:12 by hjimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "libft.h"
 
 char	*ft_strdup(const char *s)
